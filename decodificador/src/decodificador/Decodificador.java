@@ -5,30 +5,33 @@
  */
 package decodificador;
 
-import java.util.Scanner;
+import Interfaz.Interfaz;
+
 
 /**
  *
  * @author potz
  */
 public class Decodificador {
-
+    public static String resultadoFinal="";
     static StringBuffer resultado = new StringBuffer();
-    static Scanner teclado = new Scanner(System.in);
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Interfaz interfaz= new Interfaz();
+        interfaz.setLocationRelativeTo(null);
+        interfaz.setVisible(true);
+    }
+    
+    public static void DescifrarPalabras(){
         int contador = 0;
         int contador2 = 0;
-        String resultadoFinal = "";
-        System.out.println("Bienvenido, ingrese la primer cadena de caracteres:");
         String PrimerCadena;
-        PrimerCadena = teclado.nextLine();
-        System.out.println("Ingrese la segunda cadena de caracteres:");
+        PrimerCadena = Interfaz.palabra1;
         String SegundaCadena;
-        SegundaCadena = teclado.nextLine();
+        SegundaCadena = Interfaz.palabra2;
         char[] Cadena1 = PrimerCadena.toCharArray();
         char[] Cadena2 = SegundaCadena.toCharArray();
         while (contador2 < Cadena1.length) {
@@ -54,6 +57,5 @@ public class Decodificador {
                 resultadoFinal = resultado.toString();
             }
         }
-        System.out.println(resultadoFinal);
     }
 }

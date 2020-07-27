@@ -5,12 +5,15 @@
  */
 package Interfaz;
 
+import decodificador.Decodificador;
+
 /**
  *
  * @author potz
  */
 public class Interfaz extends javax.swing.JFrame {
-
+    public static String palabra1;
+    public static String palabra2;
     /**
      * Creates new form Interfaz
      */
@@ -54,6 +57,11 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel3.setText("Segunda palabra:");
 
         jButton1.setText("Encontrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
@@ -122,6 +130,14 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        palabra1=jTextField1.getText();
+        palabra2=jTextField2.getText();
+        Decodificador.DescifrarPalabras();
+        jLabel4.setText(Decodificador.resultadoFinal);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
